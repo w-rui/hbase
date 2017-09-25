@@ -383,7 +383,7 @@ END
            } else {
               comment += "(x) *{color:red}-1 overall{color}*\n"
               // Ideally get the committer our of the change and @ mention them in the per-jira comment
-              comment += "	Committer, please check your recent inclusion of a patch for this issue.\n\n"
+              comment += "    Committer, please check your recent inclusion of a patch for this issue.\n\n"
            }
            echo ""
            echo "[DEBUG] trying to aggregate step-wise results"
@@ -397,7 +397,7 @@ END
            }
         } catch (Exception exception) {
           echo "Got exception: ${exception}"
-          echo "	${exception.getStackTrace()}"
+          echo "    ${exception.getStackTrace()}"
         }
       }
     }
