@@ -77,11 +77,11 @@ public class RowSpec {
       int idx = startRow.indexOf(',');
       if (idx != -1) {
         startRow = URLDecoder.decode(row.substring(0, idx),
-          HConstants.UTF8_ENCODING);
+          "ISO-8859-1");
         endRow = URLDecoder.decode(row.substring(idx + 1),
-          HConstants.UTF8_ENCODING);
+          "ISO-8859-1");
       } else {
-        startRow = URLDecoder.decode(row, HConstants.UTF8_ENCODING);
+        startRow = URLDecoder.decode(row, "ISO-8859-1");
       }
     } catch (IndexOutOfBoundsException e) {
       throw new IllegalArgumentException(e);
@@ -121,7 +121,7 @@ public class RowSpec {
           if (column.length() < 1) {
             throw new IllegalArgumentException("invalid path");
           }
-          String s = URLDecoder.decode(column.toString(), HConstants.UTF8_ENCODING);
+          String s = URLDecoder.decode(column.toString(), "ISO-8859-1");
           this.columns.add(Bytes.toBytes(s));
           column.setLength(0);
           i++;
@@ -133,7 +133,7 @@ public class RowSpec {
       i++;
       // trailing list entry
       if (column.length() > 0) {
-        String s = URLDecoder.decode(column.toString(), HConstants.UTF8_ENCODING);
+        String s = URLDecoder.decode(column.toString(), "ISO-8859-1");
         this.columns.add(Bytes.toBytes(s));
       }
     } catch (IndexOutOfBoundsException e) {
